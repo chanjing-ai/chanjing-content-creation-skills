@@ -10,7 +10,7 @@ description: >-
 
 # 蝉镜内容创作技能包（顶层入口）
 
-本包遵循仓库根目录 [`rule.md`](../../rule.md)：**§二～五** 约定 `SKILL.md` + `common/` + `products/` + `orchestration/` 为包内**仅有的根级对象**；**§六** 要求含 `scripts/` 的包在根 `SKILL.md` 写明「运行时契约」与注册元数据。**`rule.md` 不含本包业务逻辑**——蝉镜 API、路径、环境变量与成片产物等**真值以本文件与各 `_SKILL.md` 为准**。
+本包遵循仓库 [`skills/rule.md`](../rule.md)：**§二～五** 约定 `SKILL.md` + `common/` + `products/` + `orchestration/` 为包内**仅有的根级对象**；**§六** 要求含 `scripts/` 的包在根 `SKILL.md` 写明「运行时契约」与注册元数据。**`rule.md` 不含本包业务逻辑**——蝉镜 API、路径、环境变量与成片产物等**真值以本文件与各 `_SKILL.md` 为准**。
 
 **职责边界（须区分）**
 

@@ -2,7 +2,7 @@
 
 面向电商内容创作的 Chan Openclaw 技能集合（实用 AI 工具与技能）。
 
-English version: [README.md](README.md)
+English version: [CHANJING-README.md](CHANJING-README.md)
 
 ## 安装
 
@@ -19,9 +19,9 @@ npx skills add chanjing-ai/chan-skills --skill chanjing-content-creation-skill -
 
 ## 获取并设置 API Key（Chan Jing / 蝉镜）
 
-**Agent 第一站：** [skills/chanjing-content-creation-skill/SKILL.md](skills/chanjing-content-creation-skill/SKILL.md) — **仅**全局路由索引；L3 编排在 [`orchestration/`](skills/chanjing-content-creation-skill/orchestration/README.md)；L2 产品在 [`products/`](skills/chanjing-content-creation-skill/products/)。
+**Agent 第一站：** [skills/chanjing-content-creation-skill/SKILL.md](../skills/chanjing-content-creation-skill/SKILL.md) — **仅**全局路由索引；L3 编排在 [`orchestration/`](../skills/chanjing-content-creation-skill/orchestration/README.md)；L2 产品在 [`products/`](../skills/chanjing-content-creation-skill/products/)。
 
-在使用 Chan Jing（蝉镜）相关技能（TTS、数字人、声音复刻等）之前，需要先配置 **Access Key (`app_id`)** 和 **Secret Key (`secret_key`)**。详细说明见 [chanjing-credentials-guard](skills/chanjing-content-creation-skill/products/chanjing-credentials-guard/chanjing-credentials-guard_SKILL.md)。
+在使用 Chan Jing（蝉镜）相关技能（TTS、数字人、声音复刻等）之前，需要先配置 **Access Key (`app_id`)** 和 **Secret Key (`secret_key`)**。详细说明见 [chanjing-credentials-guard](../skills/chanjing-content-creation-skill/products/chanjing-credentials-guard/chanjing-credentials-guard_SKILL.md)。
 
 ### 获取 API Key
 
@@ -52,7 +52,7 @@ python skills/chanjing-content-creation-skill/products/chanjing-credentials-guar
 
 | 名称 | 说明 |
 |------|------|
-| *（入口）* | [skills/chanjing-content-creation-skill/SKILL.md](skills/chanjing-content-creation-skill/SKILL.md) — 内容创作技能包入口，Agent 第一站。 |
+| *（入口）* | [skills/chanjing-content-creation-skill/SKILL.md](../skills/chanjing-content-creation-skill/SKILL.md) — 内容创作技能包入口，Agent 第一站。 |
 | chanjing-content-creation-skill | 内容创作技能包：`SKILL.md` 仅全局路由索引；`orchestration/` 为 L3 编排与契约；`products/` 为 L2；`common/` 为 L1。 |
 | chanjing-credentials-guard | 凭据守卫：在调用任何蝉镜 API 前校验 AK/SK 和 Token；缺失时引导登录和 Shell 配置。建议在其他蝉镜技能之前先运行。 |
 | chanjing-tts | 使用内置音色进行中英文文本转语音。 |
@@ -81,7 +81,7 @@ skills/
                 └── run_render.py
 ```
 
-- `skills/chanjing-content-creation-skill/SKILL.md`：全局唯一入口——**路由** + 按 [`rule.md`](rule.md) **§六** 写明的 **「运行时契约」**（环境变量、凭据、二进制、落盘等）；**业务细则**在各 **`{名}_SKILL.md`**。命中目标后打开对应手册。
+- `skills/chanjing-content-creation-skill/SKILL.md`：全局唯一入口——**路由** + 按 [`skills/rule.md`](../skills/rule.md) **§六** 写明的 **「运行时契约」**（环境变量、凭据、二进制、落盘等）；**业务细则**在各 **`{名}_SKILL.md`**。命中目标后打开对应手册。
 - `skills/chanjing-content-creation-skill/common/`：L1（`base.py`、`exceptions.py`、`logger.py`），无产品业务逻辑。
 - `skills/chanjing-content-creation-skill/products/<product>/<product>_SKILL.md`：L2 执行真值；**`scripts/`** 内含 `cli_capabilities.py` 与各 CLI。
 - `skills/chanjing-content-creation-skill/orchestration/`：L3；每场景目录 **一个** `<scene>_SKILL.md` + `scripts/` 等；`CONTRACT_SKILL.md` 为共用契约。

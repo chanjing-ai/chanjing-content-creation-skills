@@ -1,6 +1,6 @@
 # L3 编排层（`orchestration/`）
 
-本目录与包根 [`SKILL.md`](../SKILL.md)、L1 [`common/`](../common/)、L2 [`products/`](../products/) **物理隔离**，并符合仓库 [`rule.md`](../../../rule.md)。
+本目录与包根 [`SKILL.md`](../SKILL.md)、L1 [`common/`](../common/)、L2 [`products/`](../products/) **物理隔离**，并符合仓库 [`rule.md`](../../rule.md)。
 
 ## 职责（与 L2 的边界）
 

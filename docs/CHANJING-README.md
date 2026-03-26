@@ -2,7 +2,7 @@
 
 Chan Openclaw skills for E-Commerce content creation (practical AI tools and skills).
 
-中文版本见 [README.zh-CN.md](README.zh-CN.md)。
+中文版本见 [CHANGJING-README.zh-CN.md](CHANGJING-README.zh-CN.md)。
 
 ## Install
 
@@ -19,9 +19,9 @@ npx skills add chanjing-ai/chan-skills --skill chanjing-content-creation-skill -
 
 ## Get and set API keys (Chan Jing / 蝉镜)
 
-**Agent entry point (first stop):** [skills/chanjing-content-creation-skill/SKILL.md](skills/chanjing-content-creation-skill/SKILL.md) — global routing index only. L3 orchestration lives under [`orchestration/`](skills/chanjing-content-creation-skill/orchestration/README.md); L2 products under [`products/`](skills/chanjing-content-creation-skill/products/).
+**Agent entry point (first stop):** [skills/chanjing-content-creation-skill/SKILL.md](../skills/chanjing-content-creation-skill/SKILL.md) — global routing index only. L3 orchestration lives under [`orchestration/`](../skills/chanjing-content-creation-skill/orchestration/README.md); L2 products under [`products/`](../skills/chanjing-content-creation-skill/products/).
 
-Before using Chan Jing (蝉镜) skills (TTS, digital avatar, voice clone, etc.), configure **Access Key (app_id)** and **Secret Key (secret_key)**. See [chanjing-credentials-guard](skills/chanjing-content-creation-skill/products/chanjing-credentials-guard/chanjing-credentials-guard_SKILL.md) for details.
+Before using Chan Jing (蝉镜) skills (TTS, digital avatar, voice clone, etc.), configure **Access Key (app_id)** and **Secret Key (secret_key)**. See [chanjing-credentials-guard](../skills/chanjing-content-creation-skill/products/chanjing-credentials-guard/chanjing-credentials-guard_SKILL.md) for details.
 
 ### Get API keys
 
@@ -52,7 +52,7 @@ python skills/chanjing-content-creation-skill/products/chanjing-credentials-guar
 
 | Name | Description |
 |------|-------------|
-| *(entry)* | [skills/chanjing-content-creation-skill/SKILL.md](skills/chanjing-content-creation-skill/SKILL.md) — main entry for agents. |
+| *(entry)* | [skills/chanjing-content-creation-skill/SKILL.md](../skills/chanjing-content-creation-skill/SKILL.md) — main entry for agents. |
 | chanjing-content-creation-skill | Package entry: global index in `SKILL.md` only; L3 orchestration and contracts under `orchestration/`; L2 products under `products/`; L1 `common/`. |
 | chanjing-credentials-guard | Credentials guard: validate AK/SK and Token before any Chanjing API; guide login and Shell config when missing. Run first before other Chanjing skills. |
 | chanjing-tts | Bilingual text-to-speech using provided voices (Chinese and English). |
@@ -66,7 +66,7 @@ python skills/chanjing-content-creation-skill/products/chanjing-credentials-guar
 
 ## Layout (top index + L1 / L2 / L3)
 
-- `skills/chanjing-content-creation-skill/SKILL.md`: global entry — **routing** plus **runtime contract** (env, credentials, binaries, persistence) per [rule.md](rule.md) §6; product/scene **business** details live in each **`{name}_SKILL.md`**. After routing, open the target **`{name}_SKILL.md`**.
+- `skills/chanjing-content-creation-skill/SKILL.md`: global entry — **routing** plus **runtime contract** (env, credentials, binaries, persistence) per [skills/rule.md](../skills/rule.md) §6; product/scene **business** details live in each **`{name}_SKILL.md`**. After routing, open the target **`{name}_SKILL.md`**.
 - `skills/chanjing-content-creation-skill/common/`: L1 shared foundation (`base.py`, `exceptions.py`, `logger.py`; no product business logic).
 - `skills/chanjing-content-creation-skill/products/<product>/`: L2 products; each has **`<product>_SKILL.md`** + `scripts/` (including `cli_capabilities.py` and CLI scripts).
 - `skills/chanjing-content-creation-skill/orchestration/`: L3 composes multiple L2 capabilities; each scene dir has **one** **`<scene>_SKILL.md`** + optional `scripts/`, plus shared `CONTRACT_SKILL.md`.
