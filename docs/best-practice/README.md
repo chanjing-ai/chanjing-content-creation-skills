@@ -9,7 +9,7 @@
 | 读者 | 建议阅读 |
 |------|----------|
 | 想在对话里一句话说清需求 | 下文「四条原则」「通用模板」+ 各产品 [`*-best-practice.md`](./) |
-| 要查目录结构、模块职责、该跑哪个脚本 | 仓库 [`develop/architecture.md`](../develop/architecture.md)、[`develop/features-guide.md`](../develop/features-guide.md) |
+| 要查目录结构、模块职责、该跑哪个脚本 | 仓库 [`develop/架构说明.md`](../develop/架构说明.md)、[`develop/功能索引.md`](../develop/功能索引.md) |
 | Agent / 集成方 | 包入口 [`skills/chanjing-content-creation-skill/SKILL.md`](../skills/chanjing-content-creation-skill/SKILL.md)（路由 + **运行时契约**），再打开命中的 **`{名}_SKILL.md`** |
 
 **技能包物理路径（本仓库内嵌）：**
