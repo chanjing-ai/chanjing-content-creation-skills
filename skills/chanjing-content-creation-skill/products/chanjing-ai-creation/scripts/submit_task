@@ -46,6 +46,8 @@ def load_body(args):
         body["clarity"] = args.clarity
     if args.quality_mode:
         body["quality_mode"] = args.quality_mode
+    if args.resolution_mode:
+        body["resolution_mode"] = args.resolution_mode
     if args.number_of_images is not None:
         body["number_of_images"] = args.number_of_images
     if args.video_duration is not None:
@@ -71,6 +73,7 @@ def main():
     parser.add_argument("--aspect-ratio", help="比例，如 1:1 / 3:4 / 4:3 / 9:16 / 16:9")
     parser.add_argument("--clarity", type=int, help="清晰度，如 1024/2048/4096 或 720/1080")
     parser.add_argument("--quality-mode", help="质量模式，如 std / pro")
+    parser.add_argument("--resolution-mode", choices=["native", "super"], help="分辨率模式，如 native / super")
     parser.add_argument("--number-of-images", type=int, help="图片生成数量，1-4")
     parser.add_argument("--video-duration", type=int, help="视频时长（秒）")
     parser.add_argument("--style", help="部分视频模型支持的视频风格")

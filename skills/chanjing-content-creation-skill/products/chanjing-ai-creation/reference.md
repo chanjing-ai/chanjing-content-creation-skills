@@ -176,3 +176,5 @@ POST /open/v1/ai_creation/task/page
 * `kling-v2-1`
 * `tx_kling-v2-1-master`
 * `Doubao-Seedance-1.0-pro`
+* `seedance-2.0-pro-wetoken`
+* `minmax-h3-t2v`

@@ -303,6 +303,39 @@ def ref_to_ai_submit_params(ref: dict[str, Any]) -> tuple[str, int]:
     return best_label, clarity
 
 
+def ai_submit_params_for_model(
+    model_code: str, ref: Optional[dict[str, Any]]
+) -> dict[str, Any]:
+    """
+    Return model-specific submit parameters for chanjing-ai-creation.
+    H3 uses a different resolution contract from the older 720/1080 video models.
+    """
+    if model_code == "minmax-h3-t2v":
+        if ref is None:
+            aspect_ratio = "9:16"
+        else:
+            aspect_ratio, _ = ref_to_ai_submit_params(ref)
+        return {
+            "aspect_ratio": aspect_ratio,
+            "clarity": 1440,
+            "resolution_mode": "native",
+        }
+
+    if ref is None:
+        return {
+            "aspect_ratio": "9:16",
+            "clarity": 1080,
+            "resolution_mode": None,
+        }
+
+    aspect_ratio, clarity = ref_to_ai_submit_params(ref)
+    return {
+        "aspect_ratio": aspect_ratio,
+        "clarity": clarity,
+        "resolution_mode": None,
+    }
+
+
 def parse_fps(frac: str) -> float:
     if not frac or frac == "0/0":
         return 30.0
@@ -812,7 +845,7 @@ def main() -> None:
     model_code = (
         data.get("model_code")
         or os.environ.get("AI_VIDEO_MODEL")
-        or "Doubao-Seedance-2.0"
+        or "minmax-h3-t2v"
     )
 
     dh_subtitle = "show" if data.get("subtitle_required") else "hide"
@@ -938,13 +971,19 @@ def main() -> None:
 
         if has_ai:
             assert ref_for_normalize is not None
-            ai_aspect_ratio, ai_clarity = ref_to_ai_submit_params(ref_for_normalize)
+            ai_submit_params = ai_submit_params_for_model(model_code, ref_for_normalize)
         else:
-            ai_aspect_ratio, ai_clarity = "9:16", 1080
+            ai_submit_params = ai_submit_params_for_model(model_code, None)
+
+        ai_aspect_ratio = str(ai_submit_params["aspect_ratio"])
+        ai_clarity = ai_submit_params["clarity"]
+        ai_resolution_mode = ai_submit_params.get("resolution_mode")
 
         result["debug"]["ai_video_submit_params"] = {
+            "model_code": model_code,
             "aspect_ratio": ai_aspect_ratio,
             "clarity": ai_clarity,
+            "resolution_mode": ai_resolution_mode,
             "ref_width": ref_for_normalize["width"] if ref_for_normalize else None,
             "ref_height": ref_for_normalize["height"] if ref_for_normalize else None,
         }
@@ -997,6 +1036,11 @@ def main() -> None:
                                 "--video-duration",
                                 str(ai_seg),
                             ]
+                            + (
+                                ["--resolution-mode", str(ai_resolution_mode)]
+                                if ai_resolution_mode
+                                else []
+                            )
                         )
 
                     uid = with_retry(_sub, retries)

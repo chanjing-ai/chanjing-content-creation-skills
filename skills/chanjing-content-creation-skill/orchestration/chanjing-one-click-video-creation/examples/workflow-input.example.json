@@ -16,7 +16,7 @@
   "speed": 1,
   "pitch": 1,
   "ai_video_duration_sec": 10,
-  "model_code": "Doubao-Seedance-2.0",
+  "model_code": "minmax-h3-t2v",
   "max_retry_per_step": 2,
   "subtitle_required": false,
   "subtitle_color": null,

@@ -29,7 +29,7 @@ Agent 应：**先在模板中完成内容层**，再保证 **渲染契约字段*
 | `pitch` | 否 | 默认 `1` |
 | `max_retry_per_step` | 否 | 默认 `1` |
 | `ai_video_duration_sec` | 否 | 文生视频单段秒数，仅 `5` 或 `10` 有效，否则回退 `10` |
-| `model_code` | 否 | 文生模型；缺省可用环境变量 `AI_VIDEO_MODEL`，再缺省为 `Doubao-Seedance-1.0-pro` |
+| `model_code` | 否 | 文生模型；缺省可用环境变量 `AI_VIDEO_MODEL`，再缺省为 `minmax-h3-t2v` |
 | `subtitle_required` | 否 | 真值：数字人任务 `--subtitle show`，否则 `hide` |
 | `subtitle_color` | 否 | 非空则传给 `create_task` |
 | `subtitle_stroke_color` | 否 | 同上 |
