@@ -812,7 +812,7 @@ def main() -> None:
     model_code = (
         data.get("model_code")
         or os.environ.get("AI_VIDEO_MODEL")
-        or "Doubao-Seedance-1.0-pro"
+        or "Doubao-Seedance-2.0"
     )
 
     dh_subtitle = "show" if data.get("subtitle_required") else "hide"
